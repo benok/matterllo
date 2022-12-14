@@ -69,7 +69,7 @@ class Hook(BaseHook):
         if data["card"].get("closed", False):
             return self.archiveCard(action=action)
 
-        return self.unarchiveCard(action=action)
+        #return self.unarchiveCard(action=action)
 
     def archiveCard(self, action):
         data = action["data"]
