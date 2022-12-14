@@ -40,9 +40,9 @@ class BoardView(ListView):
 
             for board in boards:
                 print("BOARD_ID:", board.id)
-                slug_board = slugify(board.name, allow_unicode=False)
+                print("BOARD_NAME:", board.name)
                 b, created = Board.objects.get_or_create(
-                    name=slug_board,
+                    name=board.name,
                     trello_board_id=board.id,
                     trello_token=token,
                 )
@@ -53,7 +53,7 @@ class BoardView(ListView):
                 result = trello_client.create_hook(url, board.id)
                 print(
                     "create trello hook :: callback={} :: board={} :: result={}".format(
-                        url, slug_board, result
+                        url, board.id, result
                     )
                 )
             return super(BoardView, self).get(request)
