@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.0.0-experimental
-FROM python:3.7-buster
+FROM python:3.7-slim-buster
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -15,6 +15,9 @@ COPY --chown=matterllo:matterllo matterllo matterllo/
 COPY --chown=matterllo:matterllo core core/
 COPY --chown=matterllo:matterllo manage.py .
 COPY --chown=matterllo:matterllo docker-entrypoint.sh .
+RUN mkdir data && chown matterllo:matterllo data
+
+VOLUME [ "/home/matterllo/data" ]
 
 EXPOSE 8000
 USER 1000:1000
