@@ -20,7 +20,7 @@ class Board(models.Model):
         verbose_name_plural = "boards"
 
     def __str__(self):
-        return self.name
+        return "{}".format(self.name)
 
     def __unicode__(self):
         return "{}".format(self.name)
