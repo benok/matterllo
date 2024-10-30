@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.0.0-experimental
-FROM python:3.7-slim-buster
+FROM python:3.8-slim-bookworm
 
 RUN apt-get update && \
     apt-get upgrade -y && \
