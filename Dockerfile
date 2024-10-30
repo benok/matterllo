@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.0.0-experimental
-FROM python:3.10-slim
+FROM python:3.11-slim
 
 RUN apt-get update && \
     apt-get upgrade -y && \
